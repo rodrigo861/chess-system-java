@@ -46,6 +46,17 @@ public class UI {
 
         System.out.println("  a b c d e f g h");
     }
+    
+    public static void clearScreen() {
+        try {
+            new ProcessBuilder("clear")
+                .inheritIO()
+                .start()
+                .waitFor();
+        } catch (Exception e) {
+            System.out.println("Não foi possível limpar a tela.");
+        }
+    }
 
     private static void printPiece(
             ChessPiece piece,
